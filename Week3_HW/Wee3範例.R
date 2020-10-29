@@ -13,5 +13,11 @@ Stock_Price <- A %>% spread(type, price)
 
 #separate函數
 Stock_Price$time <- as.Date(Stock_Price$time, format = "%Y/%m/%d")
-Stock_Price %>% separate(col = time, into = c("year", "month", "day"), sep = "-", convert = T)
+Stock_Price <- Stock_Price %>% separate(col = time, into = c("year", "month", "day"), sep = "-", convert = T)
 
+#整理索引
+a <- strsplit(Stock_Price$security_id, split = " ") %>% unlist(.,recursive = F)
+a <- a[seq(from = 1, to = 118560, by = 2)]
+Stock_Price$security_id <- as.integer(a)
+
+Stock_Price %>% filter(security_id == 1101 & month == 5)
