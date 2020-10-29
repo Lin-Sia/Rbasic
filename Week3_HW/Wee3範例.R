@@ -1,4 +1,5 @@
 library(tidyverse)
+<<<<<<< HEAD
 Data <- read_csv('TWSE_Stock Data_2012-2017.csv')
 library(tidyverse)
 #前述步驟讀資料
@@ -21,3 +22,7 @@ a <- a[seq(from = 1, to = 118560, by = 2)]
 Stock_Price$security_id <- as.integer(a)
 
 Stock_Price %>% filter(security_id == 1101 & month == 5)
+=======
+reader('TWSE_Stock Data_2012-2017.csv')
+a <- c(5,4,3,2,1)
+>>>>>>> 6ef9a8b5cd419e99dce74eabe9dca865f8927c3f
